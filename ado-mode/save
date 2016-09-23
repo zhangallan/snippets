@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: save
+# key: save
+# --
+save "\$temp\\${1:file name}", replace$0

@@ -1,0 +1,34 @@
+# -*- mode: snippet -*-
+# name: header
+# key: head
+# --
+clear all // Clears all variables
+set more off, permanently // Stata doesn't pause for long output. Sets it permanently
+set type double, permanently // Sets the type of variables created by generate to double by default 
+set varabbrev off, permanently // Disallows variable abbreviations for readability
+set excelxlsxlargefile on // Undocumented option to allow imports of big excel files
+
+global root          "\\\\comlexdc\\"
+global basefolder "$root\\Work\\AZ"
+global input     "$basefolder\\Input"
+global output    "$basefolder\\Output"
+global temp        "`c(tmpdir)'"
+
+***** Generates the version date string
+global datecurrent = date("$S_DATE", "DMY")
+
+if (month($datecurrent) < 10) {
+   global current_month = "0" + string(month($datecurrent))
+   }
+else {
+   global current_month = string(month($datecurrent))
+   }
+if (day($datecurrent) < 10) {
+   global current_day = "0" + string(day($datecurrent))
+   }
+else {
+   global current_day = string(day($datecurrent))
+   }
+
+global ver = string(year($datecurrent)) + "-$current_month-$current_day -"
+***** End of version date string generation

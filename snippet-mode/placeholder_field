@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: placeholder field
+# key: $
+# --
+\${${1:num}:${2:placeholder}} $0

@@ -1,0 +1,56 @@
+# -*- mode: snippet -*-
+# name: export template
+# key: exptemp
+# --
+*** Template that allows easy exporting of tables to Excel
+$0
+** Part 1 - Getting labels for variables
+* Fill in your reshape j variable name and your labels for those names
+local code "j_variable_names"
+local label "j_variable_labels"
+
+* Drops duplicates of those pairs, saves them as locals
+preserve
+duplicates drop \`code' \`label', force
+
+levelsof \`code', local(\`code'_levels)
+
+forval i = 1/\`=_N' {
+   local buffer = \`code'[\`i']
+   local \`buffer' = \`label'[\`i']
+   }
+restore
+
+** Part 2 - Reshape for Excel export
+reshape wide stub_variables, i(x_axis_variables) j(stub_variable_tails/identifiers_NO_SPACES)
+
+** Part 3 - Labeling the variables
+* List the stub variables that you want to apply labels to. Ex: "filmrent_mean filmrent_sd"
+local variablelist "stub_variable_list"
+
+* Labels the variables according to the labels defined in part 1
+foreach variable of local variablelist {
+   foreach value of local \`code'_levels {
+      label variable \`variable'\`value' "\`\`value''"
+      }
+   }
+
+** Part 4 - Additional manual relabeling for other variables
+label variable ProperName "Distributor"
+label variable ParentProperName "Parent Company"
+
+** Part 5 - Sorting table by some metric
+* Input what variable you want
+gen sortvar = var_to_sort_by
+
+* Allows you to stick custom variables last
+replace sortvar = 0 if sortvar == .
+
+* Input any variable that you want to come last or first in the table
+replace sortvar = -1000 if identifying_variable == value_to_be_sorted_first_or_last
+gsort -sortvar
+drop sortvar
+
+** Part 6 - Excel export
+* The missing option allows Excel to put blanks where values are missing
+export excel using "\$output\\\$ver FILE_NAME_HERE.xlsx", replace firstrow(varl) missing(" ")

@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: sortvar
+# key: sortvar
+# --
+gen sortvar = ${1:var_to_sort_by}
+replace sortvar = -9999999999 if ${2:var_to_go_last} == ${3:thing_to_go_last}
+gsort -sortvar
+drop sortvar

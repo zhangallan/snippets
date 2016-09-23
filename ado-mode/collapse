@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: collapse
+# key: col
+# --
+collapse (${1:stat function}) ${2:numeric variable of interest}, by(${3:variables to group by})$0

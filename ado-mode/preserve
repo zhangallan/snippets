@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: preserve
+# key: pre
+# --
+preserve
+$0
+restore

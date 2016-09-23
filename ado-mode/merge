@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: merge
+# key: merge
+# --
+merge ${1:$$(yas-choose-value '("1:1" "m:1" 1:m))} ${2:key_variable} using "\$temp\\${3:using_file_name}", assert(${4:match_results_desired})$0

@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: bysort
+# key: bys
+# --
+bysort ${1:variable to group by}: ${2:some function}$0

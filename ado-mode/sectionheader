@@ -1,0 +1,9 @@
+# -*- mode: snippet -*-
+# name: Section Header
+# key: sec
+# --
+***${1:$(make-string (string-width yas-text) ?\*)}
+*! ${1:Section Title}
+***${1:$(make-string (string-width yas-text) ?\*)}
+
+$0

@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: export
+# key: exp
+# --
+export excel using "${1:\$output\\\\\$ver ${2:file_name}}", replace firstrow(varl) missing(" ")$0
