@@ -1,0 +1,18 @@
+# -*- mode: snippet -*-
+# name: function
+# key: def
+# --
+def ${1:function_name}(${2:args}):
+    """
+    ${3:function_description}
+
+    Parameters
+    ----------
+    $2
+
+    Returns
+    -------
+    ${4:return_output} : ${5:return_type}
+    ${6:Description}
+    """
+    $0

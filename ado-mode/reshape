@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: reshape
+# key: res
+# --
+reshape ${1:$$(yas-choose-value '("wide" "long"))} ${2:stub}, i(${3:row_vars}) j(${4:col_vars})$0

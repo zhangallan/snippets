@@ -1,0 +1,12 @@
+# -*- mode: snippet -*-
+# name: datesif
+# key: datesif
+# --
+${1:$$(yas-choose-value '("w" "m" "q" "y" "d"))}of${2:$$(yas-choose-value '("w" "m" "q" "y" "d")')}(${3:var})
+/* values:
+[w]eek
+[m]onth
+[q]uarter
+[y]ear
+[d]day
+*/

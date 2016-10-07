@@ -1,0 +1,16 @@
+# -*- mode: snippet -*-
+# name: date_string
+# key: datestr
+# --
+${1:$$(yas-choose-value '("date" "weekly" "monthly" "quarterly" "yearly"))}(${2:string}, "${3:mask}")$0
+/* Mask details:
+M - month
+D - day within month
+Y - 4 digit year
+19Y - 19xx year
+20Y - 20xx year
+h - hour
+m - minutes
+s - seconds
+# - ignore
+*/

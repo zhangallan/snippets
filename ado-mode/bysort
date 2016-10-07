@@ -2,4 +2,4 @@
 # name: bysort
 # key: bys
 # --
-bysort ${1:variable to group by}: ${2:some function}$0
+bysort ${1:vars_to_group_by}: ${2:some_function}$0

@@ -14,21 +14,6 @@ global input     "$basefolder\\Input"
 global output    "$basefolder\\Output"
 global temp        "`c(tmpdir)'"
 
-***** Generates the version date string
-global datecurrent = date("$S_DATE", "DMY")
-
-if (month($datecurrent) < 10) {
-   global current_month = "0" + string(month($datecurrent))
-   }
-else {
-   global current_month = string(month($datecurrent))
-   }
-if (day($datecurrent) < 10) {
-   global current_day = "0" + string(day($datecurrent))
-   }
-else {
-   global current_day = string(day($datecurrent))
-   }
-
-global ver = string(year($datecurrent)) + "-$current_month-$current_day -"
-***** End of version date string generation
+* Generates the current version date string
+global ver = string(date("$S_DATE", "DMY"), "%tdCCYY-NN-DD") + " - "
+** Global Header End **

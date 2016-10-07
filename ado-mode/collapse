@@ -2,4 +2,4 @@
 # name: collapse
 # key: col
 # --
-collapse (${1:stat function}) ${2:numeric variable of interest}, by(${3:variables to group by})$0
+collapse (${1:stat_function}) ${2:numeric_variable_of_interest}, by(${3:variables_to_group_by})$0

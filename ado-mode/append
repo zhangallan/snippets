@@ -1,6 +1,5 @@
 # -*- mode: snippet -*-
 # name: append
-# key: append
+# key: app
 # --
-append using "$temp\\$1"
-$0
+append using "$temp\\${1:file_name}"${2:, gen(${3:var_name})}$0
